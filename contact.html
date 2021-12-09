@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+  <div class="container">
+    <form class="googleform">
+      <div class="formcontrol">
+        <label for="Email">Email</label>
+        <input type="Email" placeholder="Enter Email" id="Email" name="Email">
+        <br></br>
+      </div>
+      <div class="form-control">
+        <label for="password"> password</label>
+        <input type="password" placeholder="password" id="password" name="password">
+        <br></br>
+      </div>
+      <div class="form-control">
+        <label for="cpassword">confirm password</label>
+        <input type="password" placeholder="confirm password" id="cpassword" name="cpassword">
+        <br></br>
+      </div>
+      <button id="button" type="submit">send</button>
+      <button id="button1" type="reset">Reset</button>
+    </form>
+  </div>
+<style>
+  .container{
+    color:red;
+  }
+</style>
+
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycby-oIGNYmw3Rvzdm-3LrJ9V5LmFBHdDLQ64pGfRmQ2ChIZoXkVfHTy0OWrp8Kkq50UJoA/exec'
+            const form = document.forms['googleform']
+
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+</script>
+
+
+  </body>
+</html>
